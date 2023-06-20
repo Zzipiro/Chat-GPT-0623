@@ -6,6 +6,11 @@
     --accent-turquoise: #70c4ba;
 }
 
+:root.dark {
+    --primary-background-color: #171717;
+    --primary-text-color: #E2E2E0;
+}
+
 /* Reset dei margini e padding */
 *,
 *::before,
@@ -16,7 +21,7 @@
 }
 
 html, body {
-    height: 100%;
+    height: 100vh;
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
 }
@@ -24,6 +29,7 @@ html, body {
 body {
     font-family: synthese, sans-serif;
     line-height: 1.2;
+    
 }
 
 /* Dimensioni di base per il testo */
@@ -45,7 +51,8 @@ h3 {
 }
 
 h4 {
-    font-size: 1.5rem; /* (24px) */
+    font-size: 1.25rem; /* (24px) */
+    font-weight: 700;
 }
 
 h5 {
@@ -85,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     font-weight: 900;
 }
 
@@ -128,38 +135,51 @@ a {
 
 .cards {
     display: grid;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
     padding: 1em 0.5em; /* Padding 1em in altezza e 0.5em in larghezza */
     max-width: 1200px; /* Massima larghezza della griglia */
     margin: 0 auto; /* Centra la griglia nella pagina */
+    word-wrap: balance;
 }
 
 .cards > * {
-    grid-column: 1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     border: 1px solid var(--primary-text-color);
-    border-radius: 1rem;
+    border-radius: .75rem;
     padding: 15px; /* Aumenta leggermente il padding */
-    max-width: 100%;
-    word-wrap: break-word;
 }
 
 .titolo {
     grid-row: 1;
-    grid-column: 1 / span 2; /* Occupa 2 colonne */
+    grid-column: 1 / span 4; /* Occupa 2 colonne */
     background-color: var(--accent-orange); /* Colore arancione */
+}
+
+.titolo p {
+    font-size: .5rem;
 }
 
 .tema {
     grid-row: 2;
-    grid-column: 1; /* Colonna sinistra */
-    width: 100%; /* Larghezza al 100% */
+    grid-column: 1 / span 1; /* Colonna sinistra */
     background-color: var(--primary-text-color); /* Sfondo scuro */
     color: var(--primary-background-color); /* Testo chiaro */
 }
 
 .tema h4 {
     order: 2;
-    -webkit-text-stroke: 1px var(--primary-text-color)
+    letter-spacing: -1px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .tema img {
@@ -168,8 +188,7 @@ a {
 
 .about {
     grid-row: 2;
-    grid-column: 2; /* Colonna destra */
-    width: 100%; /* Larghezza al 100% */
+    grid-column: 2 / span 3; /* Colonna destra */ /* Larghezza al 100% */
 }
 
 .divisore--tb {
@@ -184,13 +203,14 @@ a {
 
 .portfolio {
     grid-row: 3;
-    grid-column: 1 / span 2; /* Occupa 2 colonne */
+    grid-column: 1 / span 4; /* Occupa 2 colonne */
     background-color: var(--accent-turquoise); /* Colore turchese */
+    color: #171717;
 }
 
 .contatti {
     grid-row: 4;
-    grid-column: 1 / span 2; /* Occupa 2 colonne */
+    grid-column: 1 / span 4; /* Occupa 2 colonne */
 }
 
 .footer {
@@ -213,16 +233,28 @@ a {
 }
 
 /* Media query per schermi larghi */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
     .cards {
-        grid-template-columns: repeat(6, 1fr); /* Sei colonne */
+        padding: 2em 1em;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         grid-template-rows: auto auto; /* Due righe */
+    }
+
+    .card {
+        padding: 1em;
+        max-height: 350px;
     }
 
     .titolo {
         grid-row: 1;
         grid-column: 1 / span 4; /* Occupa i primi 2/3 delle colonne */
     }
+
+    .titolo p {
+        font-size: .75rem;
+        width: 50%;
+    }
+
 
     .about {
         grid-row: 1;
@@ -236,92 +268,84 @@ a {
 
     .contatti {
         grid-row: 2;
-        grid-column: 2 / span 1; /* Occupa 1/6 delle colonne */
+        grid-column: 2 / span 2; /* Occupa 1/6 delle colonne */
     }
 
     .portfolio {
         grid-row: 2;
-        grid-column: 3 / span 4; /* Occupa 4/6 delle colonne */
+        grid-column: 4 / span 3; /* Occupa 4/6 delle colonne */
     }
 
     h1 {
-        font-size: 3rem; /* Aumenta la dimensione del titolo h1 */
+        font-size: 3.5rem;
       }
     
       h2 {
-        font-size: 2.5rem; /* Aumenta la dimensione del titolo h2 */
+        font-size: 2.5rem;
       }
     
       h3 {
-        font-size: 2.25rem; /* Aumenta la dimensione del titolo h3 */
+        font-size: 2.25rem;
       }
     
       h4 {
-        font-size: 2rem; /* Aumenta la dimensione del titolo h4 */
-      }
-    
-      h5 {
-        font-size: 1.75rem; /* Aumenta la dimensione del titolo h5 */
-      }
-    
-      h6 {
-        font-size: 1.5rem; /* Aumenta la dimensione del titolo h6 */
+        font-size: 1rem;
+        
       }
 }
 
 /* Media query per schermi ancora più larghi */
 @media screen and (min-width: 1200px) {
-    .cards {
-        grid-template-columns: repeat(6, 1fr); /* Sei colonne */
-        grid-template-rows: auto auto; /* Due righe */
+    /* .cards {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto auto;
+    }
+
+    .card {
+        min-height: 300px;
     }
 
     .titolo {
         grid-row: 1;
-        grid-column: 1 / span 4; /* Occupa i primi 2/3 delle colonne */
+        grid-column: 1 / span 4;
     }
 
     .about {
         grid-row: 1;
-        grid-column: 5 / span 2; /* Occupa l'ultimo terzo delle colonne */
+        grid-column: 5 / span 2;
     }
 
     .tema {
         grid-row: 2;
-        grid-column: 1 / span 1; /* Occupa 1/6 delle colonne */
+        grid-column: 1 / span 1;
     }
 
     .contatti {
         grid-row: 2;
-        grid-column: 2 / span 2; /* Occupa 2/6 delle colonne */
+        grid-column: 2 / span 2;
     }
 
     .portfolio {
         grid-row: 2;
-        grid-column: 4 / span 3; /* Occupa 3/6 delle colonne */
+        grid-column: 4 / span 3;
+    } */
+
+    .card {
+        padding: 2em;
     }
 
     h1 {
-        font-size: 3.5rem; /* Aumenta ulteriormente la dimensione del titolo h1 */
+        font-size: 4rem;
       }
     
       h2 {
-        font-size: 3rem; /* Aumenta ulteriormente la dimensione del titolo h2 */
+        font-size: 3rem;
       }
     
       h3 {
-        font-size: 2.75rem; /* Aumenta ulteriormente la dimensione del titolo h3 */
+        font-size: 2.5rem;
       }
     
       h4 {
-        font-size: 2.5rem; /* Aumenta ulteriormente la dimensione del titolo h4 */
-      }
-    
-      h5 {
-        font-size: 2.25rem; /* Aumenta ulteriormente la dimensione del titolo h5 */
-      }
-    
-      h6 {
-        font-size: 2rem; /* Aumenta ulteriormente la dimensione del titolo h6 */
-      }
+        font-size: 1rem;
 }
