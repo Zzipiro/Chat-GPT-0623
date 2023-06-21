@@ -4,6 +4,7 @@
     --primary-text-color: #171717;
     --accent-orange: #e5894a;
     --accent-turquoise: #70c4ba;
+    transition: color 1s ease, background-color 1s ease;
 }
 
 :root.dark {
@@ -21,7 +22,7 @@
 }
 
 html, body {
-    height: 100vh;
+    height: 100%;
     background-color: var(--primary-background-color);
     color: var(--primary-text-color);
 }
@@ -29,7 +30,6 @@ html, body {
 body {
     font-family: synthese, sans-serif;
     line-height: 1.2;
-    
 }
 
 /* Dimensioni di base per il testo */
@@ -52,7 +52,6 @@ h3 {
 
 h4 {
     font-size: 1.25rem; /* (24px) */
-    font-weight: 700;
 }
 
 h5 {
@@ -92,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-weight: 900;
 }
 
@@ -154,10 +153,15 @@ a {
     grid-row: 1;
     grid-column: 1 / span 4; /* Occupa 2 colonne */
     background-color: var(--accent-orange); /* Colore arancione */
+    min-height: 200px;
 }
 
 .titolo p {
     font-size: .5rem;
+}
+
+.card.tema {
+    transition: background-color 0.5s ease;
 }
 
 .tema {
@@ -169,7 +173,7 @@ a {
 
 .tema h4 {
     order: 2;
-    letter-spacing: -1px;
+    
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -213,6 +217,37 @@ a {
     grid-column: 1 / span 4; /* Occupa 2 colonne */
 }
 
+/* Aggiungi queste regole CSS al tuo foglio di stile */
+
+/* Aggiungi una transizione alle icone che cambiano durante il cambio di tema */
+.orsetto--img,
+.about--img,
+.tema--img {
+  transition: transform 1s ease;
+}
+
+
+/* Aggiungi un'animazione per la transizione */
+@keyframes icon-transition {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Applica l'animazione alle icone durante la transizione */
+.orsetto--img,
+.about--img,
+.tema--img {
+  animation: icon-transition 1s ease;
+}
+
+
 .footer {
     padding: 20px;
     max-width: 1200px;
@@ -230,10 +265,68 @@ a {
     text-decoration: none;
     font-weight: 700;
     font-style: italic;
+    font-size: 1.25rem;
 }
+
+/* Canvas */
+.canvas {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    padding: 2em 1em;
+}
+
+#canvas {
+    border: 1px solid var(--primary-text-color);
+    border-radius: .5em;
+    width: 100%;
+    height: 300px;
+}
+
+.strumenti {
+    margin: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* #color1 {
+    background-color: var(--primary-text-color);
+} */
+
+#color2 {
+    background-color: var(--accent-orange);
+}
+
+#color3 {
+    background-color: var(--accent-turquoise);
+}
+
+#clear, #undo, #redo {
+    margin-left: 1em;
+    padding: .5em 1em;
+    border: 1px solid var(--primary-text-color);
+    border-radius: .5rem;
+    background-color: transparent;
+    color: var(--primary-text-color);
+    font-family: synthese, sans-serif;
+}
+
 
 /* Media query per schermi larghi */
 @media screen and (min-width: 900px) {
+
+    
     .cards {
         padding: 2em 1em;
         grid-template-columns: repeat(6, minmax(0, 1fr));

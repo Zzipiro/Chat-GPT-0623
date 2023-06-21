@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.typekit.net/zrt3bzo.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon-a.svg">
+    <title>ORSO - Grafico</title>
 </head>
 <body>
     <header class="header">
@@ -20,24 +21,28 @@
     <hr class="separator">
 
     <section class="cards">
+        <!-- Titolo -->
         <div class="card titolo divisore--tb">
             <h1>Soluzioni a misura d'uomo*</h1>
             <p class="align--d mt--i">*per uomo si intende umano che comprende tutti i generi presenti, poi io sono un orso, ma è un’altra storia.</p>
         </div>
-        <div class="card tema divisore--tb pointer">
-            <h4>Prova la modalità letargo</h4>
-            <img class="tema-image align--d" src="img/icona-dark.svg" alt="cambio tema" width="36px">
+        <!-- Tema -->
+        <div class="card tema divisore--tb pointer" id="theme-card">
+            <h4 class="testo--tema">Modalità letargo</h4>
+            <img class="tema--img align--d" src="img/icona-dark.svg" alt="cambio tema" width="36px">
         </div>
-                    
+          
+        <!-- Chi sono? -->
         <a href="#" class="card about divisore--tb pointer">
             <div>
                 <h3>Chi sono?</h3>
                 <p>Bella domanda!<br>Ma magari qualcosa ve la posso dire...</p>
             </div>
             <div class="align--d mt--i">
-                <img src="img/icona-about-l.svg" alt="cambio tema" width="36px">
+                <img class="about--img" src="img/icona-about-l.svg" alt="cambio tema" width="36px">
             </div>
         </a>
+        <!-- Portfolio -->
         <a class="card portfolio divisore--tb pointer">
             <div>
                 <h2>Portfolio</h2>
@@ -47,9 +52,10 @@
                 <img src="img/icona-freccia-l.svg" alt="freccia" width="36px">
             </div>
         </a>
+        <!-- Contatti -->
         <a href="mailto:info@example.com" class="card contatti divisore--tb">
             <h3>Entriamo in contatto</h3>
-            <img class="align--d mt--i" src="img/icona-orsetto-a.svg" alt="icona orso stilizzata" width="36px">
+            <img class="orsetto--img align--d mt--i" src="img/icona-orsetto-a.svg" alt="icona orso stilizzata" width="36px">
         </a>
     </section>
 
@@ -57,11 +63,29 @@
 
     <footer class="footer">
         <div class="mail-link">
-            <a href="mailto:info@example.com">Contattami via email</a>
+            <a href="mailto:orso.grafico@gmail.com">orso.grafico@gmail.com</a>
         </div>
     </footer>
 
+    <hr class="separator">
+
+    <section class="canvas">
+        <canvas id="canvas">
+
+        </canvas>
+        <div class="strumenti">
+            <!-- <div class="color" id="color1"></div> -->
+            <div class="color" id="color2"></div>
+            <div class="color" id="color3"></div>
+            <button id="clear">Cancella</button>
+            <!-- <button id="undo" disabled>Undo</button>
+            <button id="redo" disabled>Redo</button> -->
+          </div>
+    </section>
+    
+
     <script src="tema.js"></script>
+    <script src="canvas.js"></script>
       
 </body>
 </html>
