@@ -14,16 +14,29 @@ function setCurrentColor(color) {
 // Funzione per iniziare il disegno
 function startDrawing(event) {
   isDrawing = true;
-  [lastX, lastY] = [event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop];
+  [lastX, lastY] = getCursorPosition(event);
+}
+
+// Funzione per ottenere le coordinate del cursore, tenendo conto della posizione del canvas
+function getCursorPosition(event) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const offsetX = event.clientX - rect.left;
+  const offsetY = event.clientY - rect.top;
+  const x = offsetX * scaleX;
+  const y = offsetY * scaleY;
+  return [x, y];
 }
 
 // Funzione per disegnare una linea
 function draw(event) {
   if (!isDrawing) return;
 
-  const x = event.clientX - canvas.offsetLeft;
-  const y = event.clientY - canvas.offsetTop;
+  const [x, y] = getCursorPosition(event);
 
+  ctx.setTransform(1, 0, 0, 1, 0, 0); // Ripristina la matrice di trasformazione
+  
   ctx.strokeStyle = currentColor;
   ctx.lineJoin = "round";
   ctx.lineCap = "round";
@@ -47,15 +60,31 @@ function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// Inizializzazione
 function init() {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
 
+  // Imposta la risoluzione del canvas
+  const canvasWidth = canvas.offsetWidth;
+  const canvasHeight = canvas.offsetHeight;
+  canvas.width = canvasWidth * window.devicePixelRatio;
+  canvas.height = canvasHeight * window.devicePixelRatio;
+
+  // Imposta lo scaling del canvas
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+  
+  // Restituisci la dimensione iniziale del canvas alla dimensione corretta
+  // canvas.style.width = `${canvasWidth}px`;
+  // canvas.style.height = `${canvasHeight}px`;
+
+
+// Abilita l'antialiasing
+ctx.imageSmoothingEnabled = true;
+
   // Aggiungi event listener per il click sui colori
-//   document.getElementById("color1").addEventListener("click", function() {
-//     setCurrentColor("(--primary-text-color)");
-//   });
+  /*document.getElementById("color1").addEventListener("click", function() {
+    setCurrentColor("#ff0000");
+  });*/
   document.getElementById("color2").addEventListener("click", function() {
     setCurrentColor("#e5894a");
   });
@@ -69,9 +98,25 @@ function init() {
   canvas.addEventListener("mouseup", endDrawing);
   canvas.addEventListener("mouseleave", endDrawing);
 
+  // Aggiungi event listener per il disegno su dispositivi touch
+  canvas.addEventListener("touchstart", function(event) {
+    event.preventDefault();
+    startDrawing(event.touches[0]);
+  });
+  canvas.addEventListener("touchmove", function(event) {
+    event.preventDefault();
+    draw(event.touches[0]);
+  });
+  canvas.addEventListener("touchend", endDrawing);
+  canvas.addEventListener("touchcancel", endDrawing);
+
   // Aggiungi event listener per il pulsante "Cancella"
   document.getElementById("clear").addEventListener("click", clearCanvas);
 }
 
+
+
 // Inizializza l'applicazione
 init();
+
+

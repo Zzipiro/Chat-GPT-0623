@@ -30,6 +30,7 @@ html, body {
 body {
     font-family: synthese, sans-serif;
     line-height: 1.2;
+    width: 100%;
 }
 
 /* Dimensioni di base per il testo */
@@ -68,6 +69,10 @@ h6 {
 
 .mt--i {
     margin-top: 1rem;
+}
+
+.mb--i {
+    margin-bottom: 1rem;
 }
 
 /* Resto del CSS... */
@@ -138,7 +143,7 @@ a {
     gap: 1.5em;
     padding: 1em 0.5em; /* Padding 1em in altezza e 0.5em in larghezza */
     max-width: 1200px; /* Massima larghezza della griglia */
-    margin: 0 auto; /* Centra la griglia nella pagina */
+    margin: 1em auto; /* Centra la griglia nella pagina */
     word-wrap: balance;
 }
 
@@ -149,11 +154,16 @@ a {
     padding: 15px; /* Aumenta leggermente il padding */
 }
 
+.card {
+    transition: all 0.15s ease;
+}
+
 .titolo {
     grid-row: 1;
     grid-column: 1 / span 4; /* Occupa 2 colonne */
     background-color: var(--accent-orange); /* Colore arancione */
     min-height: 200px;
+    color: #171717;
 }
 
 .titolo p {
@@ -273,6 +283,8 @@ a {
     max-width: 1200px;
     width: 100%;
     display: flex;
+    position: relative;
+    overflow: hidden;
     flex-direction: column;
     margin: 2em auto;
     padding: 2em 1em;
@@ -283,6 +295,7 @@ a {
     border-radius: .5em;
     width: 100%;
     height: 300px;
+    touch-action: none;
 }
 
 .strumenti {
@@ -337,6 +350,18 @@ a {
         padding: 1em;
         max-height: 350px;
     }
+
+    .card.about:hover,
+    .card.tema:hover,
+    .card.contatti:hover,
+    .card.portfolio:hover {
+    /* box-shadow:
+        1.9px 1.9px 11.2px rgba(0, 0, 0, 0.075),
+        5.3px 5.3px 21.5px rgba(0, 0, 0, 0.067),
+        12.7px 12.7px 34.3px rgba(0, 0, 0, 0.054),
+        42px 42px 85px rgba(0, 0, 0, 0.13); */
+        border: 4px solid var(--primary-text-color);
+}
 
     .titolo {
         grid-row: 1;
@@ -441,4 +466,5 @@ a {
     
       h4 {
         font-size: 1rem;
+    }
 }
