@@ -1,8 +1,3 @@
-img {
-    object-fit: cover;
-    width: 100%;
-}
-
 .grid--p {
     display: grid;
     grid-template-columns: 1fr;
@@ -27,8 +22,8 @@ img {
     background-color: var(--accent-turquoise); /* Colore arancione */
     min-height: 150px;
     border-radius: .75rem;
-    padding: 15px;
-    border: 1px solid var(--primary-text-color);
+    padding: 1rem;
+    border: 1.5px solid var(--primary-text-color);
     color: #171717;
     text-align: center;
     margin-bottom: 1em;
@@ -37,13 +32,14 @@ img {
 
 .titolo--p h1 {
     margin-bottom: 1rem;
-    object-fit: cover;
 }
 
 .immagine--p img {
-    border-radius: .75rem;
-    border: 1px solid var(--primary-text-color);
+    border-radius: .5rem;
+    border: 1.5px solid var(--primary-text-color);
     height: 300px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .immagine--descrizione {
@@ -52,13 +48,92 @@ img {
     margin-top: .5rem;
 }
 
-.immagine--descrizione p {
+.immagine--descrizione p:first-child {
+    grid-column: 1 / span 2;
     font-weight: 700;
 }
 
-.immagine--descrizione p:first-child {
-    grid-column: 1 / span 2;
+.anno {
+    justify-self: right;
+    opacity: 50%;
 }
+
+.footer--alt {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tema--footer {
+    opacity: 50%;
+}
+
+/* Lavori */
+
+.grid--p--1,
+.grid--p--2,
+.grid--p--3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    padding: 1em 0.5em;
+    max-width: 1200px;
+    margin: 1em auto 2em auto;
+    word-wrap: balance;
+}
+
+.grid--p--1,
+.grid--p--2,
+.grid--p--3 > * {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+}
+
+.descrizione--p--limoncello,
+.descrizione--p--biennale,
+.descrizione--p--caccia {
+    border-radius: .5rem;
+    border: 1.5px solid var(--primary-text-color);
+    padding: 2em 1em;
+}
+
+.nome--p {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+
+.dettagli {
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: .5rem;
+}
+
+.anno--p--1 {
+    opacity: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.card--p--img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+    border: 1.5px solid var(--primary-text-color);
+
+}
+
+.img--p--1--limoncello,
+.img--p--1--biennale,
+.img--p--1--caccia {
+    grid-row: 1;
+    grid-column: 1 / span 1;
+}
+
+
+
 
 
 @media screen and (min-width: 600px) {
@@ -70,6 +145,7 @@ img {
     
     .grid--p > * {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
     }
 
     .titolo--p {
@@ -82,7 +158,149 @@ img {
     .titolo--p h1 {
         margin-right: 1em;
     }
+
+    .immagine--p img:hover {
+        filter: grayscale();
+        transition: all .15s ease;
+        border: 5px solid var(--primary-text-color);
+    }
+
+    /* Biennale */
+
+    
+
 }
+
+@media screen and (min-width: 800px) {
+    /* Lavori */
+
+    .grid--p--1 {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 1em;
+    }
+
+    .grid--p--1 > * {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .img--p--1--limoncello {
+        grid-row: 2;
+        grid-column: 1 / span 3;
+    }
+
+    .descrizione--p--limoncello {
+        padding: 2em;
+        grid-row: 1;
+        grid-column: 3 /span 1;
+        
+    }
+
+    .img--p--2--limoncello {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        height: auto;
+    }
+
+    /* Biennale */
+
+    .grid--p--2 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .grid--p--2 > * {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .img--p--1--biennale {
+        grid-row: 1 / span 1;
+        grid-column: 4 / span 1;
+        width: 100%;
+        
+    }
+
+    .descrizione--p--biennale {
+        grid-row: 2 / span 1;
+        grid-column: 4 /span 1;
+        
+    }
+
+    .img--p--2--biennale {
+        grid-row: 1 / span 2;
+        grid-column: 1 / span 3;
+
+    }
+
+    /* Caccia al Rifiuto */
+
+    .grid--p--3 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .grid--p--3 > * {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .img--p--1--caccia {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 4;
+        width: 100%;
+        
+    }
+
+    .descrizione--p--caccia {
+        grid-row: 2 / span 1;
+        grid-column: 1 /span 1;
+        
+    }
+
+    .img--p--2--caccia {
+        grid-row: 2 / span 1;
+        grid-column: 2 / span 3;
+
+    }
+
+
+}
+
+@media screen and (min-width: 1000px) {
+    .grid--p--1 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .grid--p--1 > * {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .img--p--1--limoncello {
+        grid-row: 1 / span 2;
+        grid-column: 1 / span 2;
+    }
+
+    .descrizione--p--limoncello {
+        grid-row: 2 / span 1;
+        grid-column: 3 /span 2;
+        
+    }
+
+    .img--p--2--limoncello {
+        grid-row: 1 / span 1;
+        grid-column: 3 / span 2;
+        height: auto;
+    }
+}
+
+
 
 @media screen and (min-width: 1100px) {
     .grid--p {
