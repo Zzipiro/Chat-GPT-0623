@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://use.typekit.net/zrt3bzo.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/img/favicon-a.svg">
-    <title>ORSO - Grafico</title>
+    <title>Home - orso</title>
 </head>
-<body>
+<body class="grainy-background">
     <header class="header">
         <a href="#" class="logo">orso</a>
         <nav class="nav">
-            <a href="portfolio.html" class="nav-link">Portfolio</a>
-            <a href="#" class="nav-link">Chi sono?</a>
+            <a href="portfolio.html" class="nav-link nav-link-portfolio">Portfolio</a>
+            <a href="about.html" class="nav-link nav-link-about">Chi sono?</a>
         </nav>
     </header>
     
@@ -33,7 +33,7 @@
         </div>
           
         <!-- Chi sono? -->
-        <a href="#" class="card about divisore--tb pointer">
+        <a href="about.html" class="card about divisore--tb pointer">
             <div>
                 <h3>Chi sono?</h3>
                 <p class="mb--i">Bella domanda!<br>Ma magari qualcosa ve la posso dire...</p>
@@ -74,17 +74,15 @@
         <canvas id="canvas">
 
         </canvas>
+        
         <div class="strumenti">
-            <!-- <div class="color" id="color1"></div> -->
             <div class="color" id="color2"></div>
             <div class="color" id="color3"></div>
             <button id="clear">Cancella</button>
-            <!-- <button id="undo" disabled>Undo</button>
-            <button id="redo" disabled>Redo</button> -->
-          </div>
+        </div>
     </section>
     
-
+    <script src="grainyBg.js"></script>
     <script src="tema.js"></script>
     <script src="canvas.js"></script>
       

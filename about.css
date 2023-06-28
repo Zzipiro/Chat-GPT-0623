@@ -1,0 +1,287 @@
+.opacita {
+    opacity: 50%;
+}
+
+.card-about img {
+    max-width: 100%;
+    height: auto;
+    border-radius: .5em;
+    
+}
+
+.card-about h1 {
+    font-size: 2rem;
+    letter-spacing: -.5px;
+    line-height: 1.1;
+    opacity: 95%;
+}
+
+.card-about h2 {
+    font-size: 1.5rem;
+    letter-spacing: -.5px;
+    opacity: 95%;
+}
+
+.card-about p {
+    line-height: 1.3;
+    font-size: 1rem;
+    letter-spacing: -.5px;
+}
+
+.grid-about {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5em;
+    max-width: 1200px;
+    margin: 1em auto;
+    padding: 1em 0.5em;
+}
+
+.card-about {
+    padding: 1.5em;
+    border: solid 2px grey;
+    border-radius: .5em;
+}
+
+/* Cards About */
+
+.card-about-foto {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.card-about-foto h1 {
+    line-height: 1;
+    margin-bottom: .75rem;
+}
+
+#progettista {
+    font-size: 1.25rem;
+    line-height: 1.1;
+    margin-bottom: .75rem;
+}
+
+#email-about {
+    margin-bottom: 2rem;
+}
+
+/* Descrizione */
+
+.card-about-descrizione {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    background-color: var(--accent-turquoise);
+    color: #171717;
+}
+
+.card-about-descrizione p {
+    margin-bottom: .5rem;
+}
+
+.card-about-orsetto {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+}
+
+/* Lingue e Skills */
+
+.card-about-lingue {
+    grid-column: 1 / span 2;
+    grid-row: 4 / span 2;
+}
+
+.card-about-lingue h2,
+.card-about-esperienza h2,
+.card-about-formazione h2,
+.card-about-attivita h2 {
+    margin-bottom: 1rem;
+}
+
+.card-about-lingue ul {
+    margin-bottom: 1.75rem;
+    list-style: none;
+}
+
+.card-about-lingue li {
+    margin-bottom: .5rem;
+}
+
+.card-about-esperienza {
+    grid-column: 1 / span 2;
+    grid-row: 6;
+}
+
+.esperienza {
+    margin-bottom: 1.75rem;
+}
+
+.esperienza p {
+    margin-bottom: 1rem;
+}
+
+.card-about-formazione {
+    grid-column: 1 / span 2;
+    grid-row: 7;
+}
+
+.card-about-attivita {
+    grid-column: 1 / span 2;
+    grid-row: 8;
+}
+
+.card-about-formazione p,
+.card-about-attivita p {
+    margin-bottom: 1rem;
+}
+
+
+
+/* Footer  */
+
+.footer--alt {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tema--footer {
+    opacity: 50%;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 600px) {
+    .card-about {
+        padding: 2em;
+    }
+    .card-about-foto {
+        flex-direction: row;
+    }
+
+    .card-about-foto-s {
+        margin-right: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    #email-about {
+        margin: 0;
+    }
+
+    .card-about-foto img {
+        width: 100%;
+    }
+
+    .card-about-lingue {
+        grid-column: 1 / span 1;
+        grid-row: 4 / span 2;
+    }
+
+    .card-about-esperienza {
+        grid-column: 2 / span 1;
+        grid-row: 4 / span 2;
+    }
+
+    .card-about-formazione {
+        grid-column: 2 / span 1;
+        grid-row: 6 / span 2; 
+    }
+
+    .card-about-attivita {
+        grid-column: 1 / span 1;
+        grid-row: 6 / span 2;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .grid-about {
+        padding: 2em;
+        margin: 0 auto;
+        gap: 2em;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card-about-orsetto {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        max-height: 150px;
+    }
+
+    .card-about-foto {
+        grid-column: 2 / span 3;
+        grid-row: 1 / span 1;
+    }
+
+    .card-about-descrizione {
+        grid-column: 2 / span 3;
+        grid-row: 2 / span 1;
+    }
+
+    .card-about-lingue {
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 1
+    }
+
+    .card-about-esperienza {
+        grid-column: 3 / span 2;
+        grid-row: 3 / span 1
+    }
+
+    .card-about-formazione {
+        grid-column: 2 / span 2;
+        grid-row: 4 / span 1;
+    }
+
+    .card-about-attivita {
+        grid-column: 1 / span 2;
+        grid-row: 5 / span 1;
+    }
+
+
+}
+
+@media screen and (min-width: 1100px) {
+    .card-about-foto {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1
+    }
+
+    .card-about-orsetto {
+        max-height: fit-content;
+        grid-column: 4 / span 1;
+        grid-row: 1 / span 1
+    }
+
+    .card-about-descrizione {
+        grid-column: 2 / span 2;
+        grid-row: 2 / span 1;
+    }
+
+    .card-about-lingue {
+        grid-column: 4 / span 1;
+        grid-row: 2 / span 2;
+    }
+
+    .card-about-esperienza {
+        grid-column: 3 / span 1;
+        grid-row: 4 / span 2;
+        
+    }
+
+    .card-about-formazione {
+        grid-column: 2 / span 1;
+        grid-row: 3 / span 2;
+    }
+
+    .card-about-attivita {
+        grid-column: 4 / span 1;
+        grid-row: 4 / span 2;
+    }
+}

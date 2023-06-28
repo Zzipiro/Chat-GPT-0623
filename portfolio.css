@@ -1,15 +1,11 @@
 .grid--p {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5em;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2.5em 1.5em;
     padding: 1em 0.5em; /* Padding 1em in altezza e 0.5em in larghezza */
     max-width: 1200px; /* Massima larghezza della griglia */
     margin: 1em auto; /* Centra la griglia nella pagina */
     word-wrap: balance;
-}
-
-.grid--p > * {
-    grid-template-columns: minmax(0, 1fr);
 }
 
 .titolo--p {
@@ -23,11 +19,10 @@
     min-height: 150px;
     border-radius: .75rem;
     padding: 1rem;
-    border: 1.5px solid var(--primary-text-color);
+    border: 2px solid var(--gray);
     color: #171717;
     text-align: center;
-    margin-bottom: 1em;
-    
+    margin-bottom: 1em;   
 }
 
 .titolo--p h1 {
@@ -36,7 +31,7 @@
 
 .immagine--p img {
     border-radius: .5rem;
-    border: 1.5px solid var(--primary-text-color);
+    border: 2px solid var(--gray);
     height: 300px;
     object-fit: cover;
     width: 100%;
@@ -74,7 +69,10 @@
 
 .grid--p--1,
 .grid--p--2,
-.grid--p--3 {
+.grid--p--3,
+.grid--p--4,
+.grid--p--5,
+.grid--p--6 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5em;
@@ -86,16 +84,21 @@
 
 .grid--p--1,
 .grid--p--2,
-.grid--p--3 > * {
+.grid--p--3,
+.grid--p--4,
+.grid--p--5,
+.grid--p--6 > * {
     grid-template-columns: minmax(0, 1fr);
     width: 100%;
 }
 
 .descrizione--p--limoncello,
 .descrizione--p--biennale,
-.descrizione--p--caccia {
+.descrizione--p--caccia,
+.descrizione--p--quattrocanti,
+.descrizione--p--architettura {
     border-radius: .5rem;
-    border: 1.5px solid var(--primary-text-color);
+    border: 2px solid var(--gray);
     padding: 2em 1em;
 }
 
@@ -121,34 +124,42 @@
     width: 100%;
     height: 100%;
     border-radius: .5rem;
-    border: 1.5px solid var(--primary-text-color);
+    border: 2px solid var(--gray);
 
 }
 
 .img--p--1--limoncello,
 .img--p--1--biennale,
-.img--p--1--caccia {
+.img--p--1--caccia,
+.descrizione--p--quattrocanti,
+.img--p--1--architettura {
     grid-row: 1;
     grid-column: 1 / span 1;
+}
+
+.immagine--p-limoncello {
+    filter: hue-rotate(90deg);
 }
 
 
 
 
-
 @media screen and (min-width: 600px) {
-    .grid--p {
+    .grid--p,
+    .grid--p--6 {
         grid-template-columns: 1fr 1fr;
         gap: 2em;
         padding: 2em; /* Padding 1em in altezza e 0.5em in larghezza */
     }
     
-    .grid--p > * {
+    .grid--p,
+    .grid--p--6 > * {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
     }
 
-    .titolo--p {
+    .titolo--p,
+    .titolo--p--architettura {
         padding: 2em;
         text-align: left;
         flex-direction: row;
@@ -165,10 +176,6 @@
         border: 5px solid var(--primary-text-color);
     }
 
-    /* Biennale */
-
-    
-
 }
 
 @media screen and (min-width: 800px) {
@@ -177,7 +184,7 @@
     .grid--p--1 {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 2em;
-        padding: 1em;
+        padding: 2em;
     }
 
     .grid--p--1 > * {
@@ -193,8 +200,7 @@
     .descrizione--p--limoncello {
         padding: 2em;
         grid-row: 1;
-        grid-column: 3 /span 1;
-        
+        grid-column: 3 /span 1;  
     }
 
     .img--p--2--limoncello {
@@ -224,6 +230,7 @@
     }
 
     .descrizione--p--biennale {
+        padding: 2em;
         grid-row: 2 / span 1;
         grid-column: 4 /span 1;
         
@@ -256,6 +263,7 @@
     }
 
     .descrizione--p--caccia {
+        padding: 2em;
         grid-row: 2 / span 1;
         grid-column: 1 /span 1;
         
@@ -267,6 +275,64 @@
 
     }
 
+    /* I Quattro Canti */
+
+    .grid--p--4 {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .grid--p--4 > * {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .img--p--1--quattrocanti {
+        grid-row: 2;
+        grid-column: 1 / span 3;
+    }
+
+    .descrizione--p--quattrocanti {
+        padding: 2em;
+        grid-row: 1;
+        grid-column: 3 /span 1;  
+    }
+
+    .img--p--2--quattrocanti {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        height: auto;
+    }
+
+    /* Architettura 110 */
+
+    .grid--p--6 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .img--p--6 > * {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        width: 100%; 
+    }
+
+    .descrizione--p--architettura {
+        padding: 2em;
+        grid-row: 2 / span 1;
+        grid-column: 4 / span 1 ;
+    }
+
+    .img--p--1--architettura {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 4 ;
+    }
+
+    .img--p--2--architettura {
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 3 ;
+    }
 
 }
 
@@ -297,6 +363,35 @@
         grid-row: 1 / span 1;
         grid-column: 3 / span 2;
         height: auto;
+    }
+
+    .grid--p--4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 2em;
+        padding: 2em;
+    }
+
+    .grid--p--4 > * {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .img--p--1--quattrocanti {
+        
+        grid-row: 1 / span 1;
+        grid-column: 3 / span 2;
+        height: auto;
+    }
+
+    .descrizione--p--quattrocanti {
+        grid-row: 2 / span 1;
+        grid-column: 3 /span 2;
+        
+    }
+
+    .img--p--2--quattrocanti {
+        grid-row: 1 / span 2;
+        grid-column: 1 / span 2;
     }
 }
 

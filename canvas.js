@@ -1,7 +1,7 @@
 // Variabili globali per la gestione del disegno
 let canvas;
 let ctx;
-let currentColor = "#e5983f";
+let currentColor = "#f7a754";
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
@@ -86,10 +86,10 @@ ctx.imageSmoothingEnabled = true;
     setCurrentColor("#ff0000");
   });*/
   document.getElementById("color2").addEventListener("click", function() {
-    setCurrentColor("#e5983f");
+    setCurrentColor("#f7a754");
   });
   document.getElementById("color3").addEventListener("click", function() {
-    setCurrentColor("#70c4ba");
+    setCurrentColor("#62d9cb");
   });
 
   // Aggiungi event listener per il disegno sul canvas
