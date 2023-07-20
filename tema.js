@@ -30,7 +30,7 @@ function updateImages(theme) {
   const temaImg = document.querySelectorAll('.tema--img');
 
   // Imposta le nuove sorgenti delle immagini in base al tema
-  const orsettoSrc = theme === 'dark' ? 'img/icona-orsetto-t.svg' : 'img/icona-orsetto-a.svg';
+  const orsettoSrc = theme === 'dark' ? 'img/favicon-t.svg' : 'img/favicon-a.svg';
   const aboutSrc = theme === 'dark' ? 'img/icona-about-d.svg' : 'img/icona-about-l.svg';
   const temaSrc = theme === 'dark' ? 'img/icona-light.svg' : 'img/icona-dark.svg';
   

@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCV2GMZWHE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-VCV2GMZWHE');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.typekit.net/zrt3bzo.css">
+    <meta
+        name="description"
+        content="Presentazione e contenitore di lavori selezionati di Francesco Orso Pirozzi, proggettista grafico">
+    <link rel="stylesheet" rel="preload" href="https://use.typekit.net/zrt3bzo.css">
     <link rel="stylesheet" href="style.css?v=1.0">
     <link rel="icon" type="image/x-icon" href="/img/favicon-a.svg">
-    <title>Home - orso</title>
-</head>
+    <title>Orso Grafico</title>
+
 <body class="grainy-background">
     <header class="header">
-        <a href="#" class="logo">orso</a>
+        <a href="/" class="logo">orso</a>
         <nav class="nav">
             <a href="portfolio.html" class="nav-link nav-link-portfolio">Portfolio</a>
             <a href="about.html" class="nav-link nav-link-about">Chi sono?</a>
@@ -29,7 +40,7 @@
         <!-- Tema -->
         <div class="card tema divisore--tb pointer" id="theme-card">
             <h4 class="testo--tema">Modalità letargo</h4>
-            <img class="tema--img align--d" src="img/icona-dark.svg" alt="cambio tema" width="36px">
+            <img class="tema--img align--d" src="img/icona-dark.svg" alt="cambio tema" width="36px" height="36px">
         </div>
           
         <!-- Chi sono? -->
@@ -39,23 +50,23 @@
                 <p class="mb--i">Bella domanda!<br>Ma magari qualcosa ve la posso dire...</p>
             </div>
             <div class="align--d mt--i">
-                <img class="about--img" src="img/icona-about-l.svg" alt="cambio tema" width="36px">
+                <img class="about--img" src="img/icona-about-l.svg" alt="cambio tema" width="36px" height="36px">
             </div>
         </a>
         <!-- Portfolio -->
         <a href="portfolio.html" class="card portfolio divisore--tb pointer">
             <div>
                 <h2>Portfolio</h2>
-                <p>Dai un’occhiata ai miei progetti, comprendono lavori di progettazione grafica, branding, modellazione e rendering 3D.</p>
+                <p class="mb--i">Dai un’occhiata ai miei progetti, comprendono lavori di progettazione grafica, branding, modellazione e rendering 3D.</p>
             </div>
             <div class="freccia--portfolio align--d mt--i">
-                <img src="img/icona-freccia-l.svg" alt="freccia" width="36px">
+                <img src="img/icona-freccia-l.svg" alt="freccia" width="36px" height="36px">
             </div>
         </a>
         <!-- Contatti -->
         <a href="mailto:orso.grafico@gmail.com" class="card contatti divisore--tb">
             <h3>Entriamo in contatto</h3>
-            <img class="orsetto--img align--d mt--i" src="img/icona-orsetto-a.svg" alt="icona orso stilizzata" width="36px">
+            <img class="orsetto--img align--d mt--i" src="img/favicon-a.svg" alt="icona orso stilizzata" width="36px" height="36px">
         </a>
     </section>
 
@@ -81,8 +92,8 @@
             <button id="clear">Cancella</button>
         </div>
     </section>
-    
-    <script src="grainyBg.js?v=1.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="gsaphome.js"></script>
     <script src="tema.js?v=1.0"></script>
     <script src="canvas.js?v=1.0"></script>
       

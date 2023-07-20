@@ -19,7 +19,6 @@ function setTheme(theme) {
     const temafImg = document.querySelectorAll('.tema--footer');
   
     // Imposta le nuove sorgenti delle immagini in base al tema
-    // const logoSrc = theme === 'dark' ? 'img/icona-light.svg' : 'img/icona-dark.svg';
     const temafSrc = theme === 'dark' ? 'img/icona-tema-l.svg' : 'img/icona-tema-d.svg';
   
     // Aggiorna le sorgenti delle immagini

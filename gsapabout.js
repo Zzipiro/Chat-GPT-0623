@@ -1,0 +1,1 @@
+gsap.from(".card-about", {duration: .75, opacity:0, y:150, stagger: 0.15});
